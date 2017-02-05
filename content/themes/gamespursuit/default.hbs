@@ -33,6 +33,12 @@
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
         {{{body}}}
 
+        <form style="text-align:center">
+          <input id="search-field" />
+          <input type="submit" value="search">
+        </form>
+        <section id="results" style="text-align:center"></section>
+
         {{!-- The tiny footer at the very bottom --}}
         <footer class="site-footer clearfix">
             <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
@@ -49,6 +55,14 @@
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     {{!-- The main JavaScript file for Casper --}}
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+
+    <!-- ghostHunter script -->
+    <script src="{{asset "js/jquery.ghostHunter.min.js"}}"></script>
+    <script>
+        $("#search-field").ghostHunter({
+            results   : "#results"
+        });
+    </script>
 
 </body>
 </html>
